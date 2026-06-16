@@ -16,7 +16,9 @@
             <a class="navbar-brand" href="{{ route('posts.index') }}">All Posts</a>
         </div>
     </nav>
-    <a href="#" class="btn btn-success">Create Post</a>
+    <div class="text-center">
+        <a href="{{ route('posts.create') }}" class="btn btn-success">Create Post</a>
+    </div>
     <table class="table mt-5 container">
         <thead>
             <tr>
@@ -35,7 +37,7 @@
                     <td>{{ $post->posted_by }}</td>
                     <td>{{ $post->created_at }}</td>
                     <td class="col">
-                        <a href="{{ route('posts.show', ['post'=> $post['id']]) }}" class="btn btn-info">View</a>
+                        <a href="{{ route('posts.show', ['post' => $post['id']]) }}" class="btn btn-info">View</a>
                         <a href="#" class="btn btn-primary">Edit</a>
                         <a href="#" class="btn btn-danger">Delete</a>
                     </td>
