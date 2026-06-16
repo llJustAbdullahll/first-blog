@@ -19,7 +19,7 @@ class PostController extends Controller
     {
         // $post = Post::find($post);
         $post = Post::where('title', 'PHP')->get();
-        dd($post);
+        
         return view('posts.show', ['post' => $post]);
     }
 }
