@@ -9,6 +9,17 @@ class Post extends Model
 {
     protected $fillable = [
         'title',
-        'description'
+        'description',
+        'user_id',
     ];
+
+    // public function myUserRelation()
+    // {
+    //     return $this->belongsTo(User::class, 'user_id');
+    // }
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
