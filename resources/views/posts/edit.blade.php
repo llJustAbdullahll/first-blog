@@ -26,16 +26,17 @@
         </div>
     @endif
     <div class="container mt-5" style="max-width: 600px;">
-        <form method="POST" action="{{ route('posts.store') }}">
+        <form method="POST" action="{{ route('posts.update', ['post' => $post->id]) }}">
             @csrf
+            @method('PUT')
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input name="title" type="text" class="form-control" id="title">
+                <input value="{{ $post->title }}" name="title" type="text" class="form-control" id="title">
             </div>
 
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea name="description" class="form-control"></textarea>
+                <textarea name="description" class="form-control">{{ $post->description }}</textarea>
             </div>
             <div class="mb-3">
                 <label for="post_creator" class="form-label">Post Creator</label>
