@@ -34,14 +34,16 @@ class PostController extends Controller
     public function store(Request $myRequestObject)
     {
         // code to validate the data
-        request()->validate([
-            'title' => ['required', 'min:3'],
-            'description' => ['required', 'min:5'],
-        ], 
-        [
-            'title.required' => 'The title field is required :).',
-            'description.required' => 'The description field is required :).',
-        ]);
+        request()->validate(
+            [
+                'title' => ['required', 'min:3'],
+                'description' => ['required', 'min:5'],
+            ],
+            [
+                'title.required' => 'The title field is required :).',
+                'description.required' => 'The description field is required :).',
+            ]
+        );
 
         // 3 steps
         // get the request data
@@ -78,14 +80,16 @@ class PostController extends Controller
     public function update($postID)
     {
         // code to validate the data
-        request()->validate([
-            'title' => ['required', 'min:3'],
-            'description' => ['required', 'min:5'],
-        ], 
-        [
-           'title.required' => 'The title field is required :).',
-           'description.required' => 'The description field is required :).',
-        ]);
+        request()->validate(
+            [
+                'title' => ['required', 'min:3'],
+                'description' => ['required', 'min:5'],
+            ],
+            [
+                'title.required' => 'The title field is required :).',
+                'description.required' => 'The description field is required :).',
+            ]
+        );
 
 
         $title = request()->title;
@@ -107,5 +111,19 @@ class PostController extends Controller
         // redirection
 
         return redirect()->route('posts.index', $postID);
+    }
+    public function destroy($postID)
+    {
+
+        // 1- delete the post from database
+        // select or find the post  
+        // delete the post database
+
+        $post = Post::find($postID);
+        $post->delete();
+        // Post::where('id', $postID)->delete();
+
+        // 2- redirection to posts.index
+        return to_route('posts.index');
     }
 }
