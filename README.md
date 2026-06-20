@@ -1,6 +1,5 @@
 # Blog
-Laravel Blog Project
-
+Laravel Blog Application with Authentication and CRUD Operations
 ## Features
 - Authentication
 - Create Posts
