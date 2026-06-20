@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title') Create @endsection
+@section('navbarName') Create Post @endsection
 
 @section('content')
     @if ($errors->any())

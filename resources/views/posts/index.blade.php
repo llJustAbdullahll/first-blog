@@ -1,6 +1,7 @@
 @extends ('layouts.app')
 
 @section('title') Index @endsection
+@section('navbarName') Posts @endsection
 
 @section ('content')
     <div class="text-center">
