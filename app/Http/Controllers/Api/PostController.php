@@ -14,5 +14,9 @@ class PostController extends Controller
         $post = Post::all();
         return PostResource::collection($post);
     }
+    public function show($post){
+        $post = Post::find($post);
+        return new PostResource(($post));
+    }
 }
 
