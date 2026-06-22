@@ -1,7 +1,2 @@
 # Blog Project
-## Features
-- Authentication
-- Create Posts
-- Edit Posts
-- Delete Posts
-- View Posts
+CRUD With Login And Register
