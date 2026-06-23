@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use Laravel\Socialite\Socialite;
 
 Route::get('/', function () {
     // return view('welcome');
@@ -20,3 +21,15 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+ 
+Route::get('/auth/redirect', function () {
+    return Socialite::driver('github')->redirect();
+});
+ 
+// we are acceptiong gitHub response
+Route::get('/auth/callback', function () {
+    $user = Socialite::driver('github')->user();
+    dd($user);
+    // the logic to wither create a new user and log him in 
+    // or log in an existent user in db
+});
